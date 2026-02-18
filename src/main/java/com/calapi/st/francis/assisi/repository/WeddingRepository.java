@@ -28,5 +28,14 @@ public interface WeddingRepository extends JpaRepository<WeddingRecord, Long> {
 			       OR LOWER(w.groomLastName) LIKE LOWER(CONCAT('%', :param, '%'))
 			""")
 	List<WeddingRecord> searchByLastNameContains(@Param("param") String param);
+	
+	@Query("""
+		    SELECT MONTH(b.dateOfWedding), COUNT(b)
+		    FROM WeddingRecord b
+		    WHERE YEAR(b.dateOfWedding) = :year
+		    GROUP BY MONTH(b.dateOfWedding)
+		    ORDER BY MONTH(b.dateOfWedding)
+		""")
+		List<Object[]> countWeddingsPerMonth(@Param("year") int year);
 
 }

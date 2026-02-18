@@ -33,8 +33,11 @@ public class DashboardController {
 
         model.addAttribute("stats",
                 dashboardService.getDashboardStatsByYear(selectedYear));
+        model.addAttribute("monthlyCounts", 
+        		dashboardService.baptismMonthlyCountsByYear(selectedYear));
+        model.addAttribute("weddingCounts", 
+        		dashboardService.weddingMonthlyCountsByYear(selectedYear));
         model.addAttribute("selectedYear", selectedYear);
-
         return "dashboard";
     }
 
