@@ -1,6 +1,6 @@
-# St. Francis of Assisi Mission Center, Brgy. Calapi Mortiong, Samar
+# St. Francis of Assisi Mission Center, Brgy. Calapi Motiong, Samar
 ## Description
-This is a software management system inteded to be used by Brgy Calapi Motiong Samar,  St. Francis of Assisi Mission Center
+This is a software management system intended to be used by Brgy Calapi Motiong Samar,  St. Francis of Assisi Mission Center
 
 ## Features
 - __Dashboard__ - Overview and statistics of the church records
