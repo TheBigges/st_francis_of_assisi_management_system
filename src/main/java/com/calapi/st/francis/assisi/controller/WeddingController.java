@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 import org.jfree.util.Log;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -81,5 +83,16 @@ public class WeddingController {
 	public ResponseEntity<WeddingRecordDto> getWeddingRecordById(@PathVariable String id) {
 		WeddingRecordDto weddingRecord = weddingService.getWeddingRecordById(id);
 		return ResponseEntity.ok(weddingRecord);
+	}
+	
+	@GetMapping("/download-pdf/{id}")
+	public ResponseEntity<byte[]> downloadPdf(@PathVariable String id) {
+		byte[] pdfBytes = weddingService.generateWeddingCertificatePdf(id);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_PDF);
+		headers.setContentDispositionFormData("attachment", "document-" + id + ".pdf");
+
+		return ResponseEntity.ok().headers(headers).body(pdfBytes);
 	}
 }

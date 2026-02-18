@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="marriage_cert" pageWidth="806" pageHeight="595" orientation="Landscape" columnWidth="766" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0dc3b2bc-104f-4333-820b-2b02592fba59">
+	<property name="ireport.zoom" value="1.2396694214876032"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="GROOM_P" class="java.lang.String"/>
+	<parameter name="BRIDE_P" class="java.lang.String"/>
+	<parameter name="DAY_P" class="java.lang.String"/>
+	<parameter name="MONTH_P" class="java.lang.String"/>
+	<parameter name="YEAR_P" class="java.lang.String"/>
+	<parameter name="WITNESS1_P" class="java.lang.String"/>
+	<parameter name="WITNESS2_P" class="java.lang.String"/>
+	<parameter name="BOOK_NO_P" class="java.lang.String"/>
+	<parameter name="PAGE_NO_P" class="java.lang.String"/>
+	<parameter name="LINE_NO_P" class="java.lang.String"/>
+	<parameter name="PRIEST_IN_CHARGE_P" class="java.lang.String"/>
+	<background>
+		<band height="555" splitType="Immediate">
+			<image>
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="0" y="0" width="802" height="555" uuid="02ff1868-a8bf-4914-91bc-633bf4cb1725"/>
+				<imageExpression><![CDATA[getClass().getResourceAsStream("/images/marriage_cert_frame_v1.1.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="223" y="205" width="340" height="271" uuid="92fbccef-58f7-4f94-9a3e-5285fe08bfe8"/>
+				<imageExpression><![CDATA[getClass().getResourceAsStream("/images/heart_ring.png")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="56" y="66" width="119" height="119" uuid="49c74c93-3c42-4fec-9e6f-4efae61e5544"/>
+				<imageExpression><![CDATA[getClass().getResourceAsStream("/images/st_francis_of_assisi_logo.png")]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<detail>
+		<band height="555" splitType="Stretch">
+			<staticText>
+				<reportElement x="336" y="37" width="104" height="14" uuid="135256bc-1893-4a8f-9fb0-43f6e68126a8"/>
+				<text><![CDATA[Dioces Of Calbayog]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="51" width="278" height="16" uuid="c5c9aeee-9ba4-4296-80c3-e05eddd8b232"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ST. FRANCIS OF ASSISI MISSION CENTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="67" width="153" height="14" uuid="4809e954-0926-4331-ab78-7e547932a64f"/>
+				<text><![CDATA[Brgy. Calapi, Motiong, Samar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="94" width="426" height="43" uuid="c89009b5-bea5-4105-8881-9c387fe22665"/>
+				<textElement>
+					<font fontName="Monotype Corsiva" size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF MARRIAGE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="202" width="680" height="22" uuid="9e32e427-8f89-4ed3-8f79-dc15f7546bb0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14"/>
+				</textElement>
+				<text><![CDATA[That__________________________________________and_____________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="228" width="680" height="22" uuid="ef6ebb12-aa4b-4785-8477-931f1528e79c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Were United in the Holy Bonds of Matrimony at  ____________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="224" width="268" height="21" uuid="f614c4ec-ba9f-45e6-b1e2-805482cd99db"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[St. Francis Of Assisi Mission Center]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="254" width="680" height="22" uuid="af42c50b-5a7f-499e-bb6f-d11c908cc71d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[On The ________ Day Of _________________ In The Year ______________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="281" width="680" height="22" uuid="e108d6c0-4c1c-439d-9861-3efd597798ac"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[According to the Rite of Roman Catholic Church and in the conformity with the laws of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="308" width="680" height="22" uuid="bc28d451-0fb8-4c03-86d1-6ded049fcb12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[The State Of  ____________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="305" width="268" height="21" uuid="7dabc33e-cc46-4054-9375-a875bf0a50a1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Brgy. Calapi, Motiong, Samar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="335" width="680" height="22" uuid="d746ed0a-63d8-4769-a6b3-49db0be39fcf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[______________________________ Officiating, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="362" width="680" height="22" uuid="ee69e73b-5e1f-4556-a043-e1980b7ef30f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[In The presence Of ______________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="389" width="680" height="22" uuid="7a3415b6-9b8a-4778-bc7e-f5582fb6151c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[And ____________________________________________________witnesses.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="414" width="680" height="22" uuid="a07d4d72-0599-439a-bef2-47c80ae1f43e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[As appears from the Marriage Register of this Church.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="440" width="680" height="22" uuid="d31caed6-1805-4ed0-81da-2d5c8ea0f195"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Book No. __________ Page No. __________ Line No. __________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="487" width="680" height="22" uuid="4020bebb-00c7-4024-b987-9a7b1653d626"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[_______________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="500" width="680" height="22" uuid="37d2999a-75f4-4d15-8455-da35cabc4372"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Priest-in-Charge]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="197" width="284" height="17" uuid="3f93ab32-9f53-4751-abe9-4bc92f8b80de"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{GROOM_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="197" width="310" height="17" uuid="b322c0f8-ae3d-4ae7-992a-f3dac2afe9cf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BRIDE_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="250" width="57" height="17" uuid="72c27ddd-cf2c-4bf3-b0ce-7ef7588fffbb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DAY_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="250" width="116" height="17" uuid="08b1f133-04e2-41f8-aa08-138234500cea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MONTH_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="503" y="250" width="96" height="17" uuid="6d4efee9-01fa-4dce-8373-e1fe2d53dcf6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{YEAR_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="357" width="386" height="17" uuid="7755d28b-9ee3-4448-bd04-c64c964b22fa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{WITNESS1_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="384" width="365" height="17" uuid="99bf7ae8-1dc9-4c33-80b9-890d1fcb608d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{WITNESS2_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="483" width="286" height="17" uuid="6dc4a8eb-0c2c-4cc7-beb9-8692fca7e1c1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PRIEST_IN_CHARGE_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="436" width="57" height="17" uuid="1722c66a-7b0f-4569-8fa8-5c2c4444a3ec"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BOOK_NO_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="436" width="57" height="17" uuid="2bacf20a-e81e-4358-99d0-482f8e61b15c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PAGE_NO_P}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="506" y="436" width="57" height="17" uuid="46bbecbe-c938-4d9d-8c6b-e4a6ad32f65b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Monotype Corsiva" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{LINE_NO_P}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

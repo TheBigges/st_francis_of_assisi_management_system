@@ -24,6 +24,7 @@ public class PdfReportService {
 			// Export to PDF
 			return JasperExportManager.exportReportToPdf(jasperPrint);
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			throw new RuntimeException("Failed to generate PDF report: " + ex.getMessage(), ex);
 		}
 	}

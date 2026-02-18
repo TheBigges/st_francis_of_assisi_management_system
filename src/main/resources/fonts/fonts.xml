@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="Monotype Corsiva">
+        <normal>fonts/MonotypeCorsiva.ttf</normal>
+        <bold>fonts/Monotype-Corsiva-Bold.ttf</bold>
+        <italic>fonts/Monotype-Corsiva-Regular-Italic.ttf</italic>
+        <boldItalic>fonts/Monotype-Corsiva-Bold-Italic.ttf</boldItalic>
+        <pdfEncoding>Identity-H</pdfEncoding>
+        <pdfEmbedded>true</pdfEmbedded>
+    </fontFamily>
+</fontFamilies>

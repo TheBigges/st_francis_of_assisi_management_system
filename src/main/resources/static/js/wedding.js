@@ -193,3 +193,43 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+
+function printWeddingDocument(button){
+document.getElementById("loadingModal").style.display = "block";
+
+	try {
+		const recordJson = button.getAttribute("data-record");
+		const record = dtoStringToJson(recordJson);
+		fetchCoupleData(record["coupleUuid"], record["groomFirstName"], record["brideFirstName"]);
+	} catch (e) {
+		document.getElementById("loadingModal").style.display = "none";
+		console.error("Failed to parse data-record:", e);
+	}	
+}
+
+function fetchCoupleData(coupleUuid, groomFirstName, brideLastName){
+	fetch(`/wedding/download-pdf/${encodeURIComponent(coupleUuid)}`)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error("PDF download failed");
+			}
+			return response.blob();
+		})
+		.then(blob => {
+			const url = window.URL.createObjectURL(blob);
+
+			const a = document.createElement("a");
+			document.getElementById("loadingModal").style.display = "none";
+			a.href = url;
+			a.download = `${groomFirstName}_X_${brideLastName}-${coupleUuid}.pdf`;
+			document.body.appendChild(a);
+			a.click();
+
+			document.body.removeChild(a);
+			window.URL.revokeObjectURL(url);
+		})
+		.catch(error => {
+			document.getElementById("loadingModal").style.display = "none";
+			console.error("Error downloading PDF:", error);
+		});
+}
