@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar">
+		<ul class="nav-menu">
+			<li><a href="javascript:void(0)" onclick="navigate('home')">HOME</a></li>
+			<li class="divider">|</li>
+
+			<li><a href="javascript:void(0)" onclick="navigate('baptism')">BAPTISM</a></li>
+			<li class="divider">|</li>
+
+			<li><a href="javascript:void(0)" onclick="navigate('wedding')">WEDDING</a></li>
+			<li class="divider">|</li>
+
+			<li><a href="javascript:void(0)" onclick="navigate('home')">CONFIRMATION</a></li>
+			<li class="divider">|</li>
+
+			<li><a href="javascript:void(0)" onclick="navigate('home')">FUNERAL</a></li>
+		</ul>
+	</nav>
+	
+	<br/>	<br/>
+
+	<h2 class="page-title">DASHBOARD</h2>
+
+	<form method="get" class="year-filter">
+		<label>Year:</label> <select name="year" onchange="this.form.submit()">
+			<option
+				th:each="y : ${#numbers.sequence(2020, T(java.time.Year).now().value)}"
+				th:value="${y}" th:text="${y}" th:selected="${y == selectedYear}">
+			</option>
+		</select>
+	</form>
+
+
+	<div class="stats-container">
+
+		<div class="stat-card blue">
+			<div class="stat-title">BAPTISM</div>
+			<div class="stat-value" th:text="${stats.baptismCount}">0</div>
+		</div>
+
+		<div class="stat-card orange">
+			<div class="stat-title">WEDDING</div>
+			<div class="stat-value" th:text="${stats.weddingCount}">0</div>
+		</div>
+
+		<div class="stat-card green">
+			<div class="stat-title">CONFIRMATION</div>
+			<div class="stat-value" th:text="${stats.confirmationCount}">0</div>
+		</div>
+
+		<div class="stat-card red">
+			<div class="stat-title">FUNERAL</div>
+			<div class="stat-value" th:text="${stats.funeralCount}">0</div>
+		</div>
+
+	</div>
+
+	<script th:src="@{/js/dashboard.js}"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation Records</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="nav">
+    <button onclick="navigate('baptism')" class="tab-btn">Baptism</button>
+    <button onclick="navigate('wedding')" class="tab-btn">Wedding</button>
+    <button onclick="navigate('confirmation')" class="tab-btn">Confirmation</button>
+</div>
+
+<div class="content">
+    <h2>Confirmation Records</h2>
+    <input type="text" id="search" placeholder="Search records...">
+    <button onclick="addRecord()">Add New</button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="recordTable">
+        <tr th:each="record : ${records}">
+            <td th:text="${record.name}">Alex Smith</td>
+            <td th:text="${record.date}">2025-03-01</td>
+            <td>
+                <button onclick="editRecord()">Edit</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script th:src="@{/js/dashboard.js}"></script>
+</body>
+</html>

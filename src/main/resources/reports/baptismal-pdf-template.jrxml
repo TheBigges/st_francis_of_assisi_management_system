@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="baptismal-pdf-template" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="896fc5bd-9680-4fe7-93cc-f932b09030ca">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="493"/>
+	<parameter name="CHILD_NAME" class="java.lang.String"/>
+	<parameter name="DATE_OF_BIRTH" class="java.lang.String"/>
+	<parameter name="PLACE_OF_BIRTH" class="java.lang.String"/>
+	<parameter name="NAME_OF_FATHER" class="java.lang.String"/>
+	<parameter name="NAME_OF_MOTHER" class="java.lang.String"/>
+	<parameter name="PARENTS_RESIDENCE" class="java.lang.String"/>
+	<parameter name="DATE_OF_BAPTISM" class="java.lang.String"/>
+	<parameter name="MINISTER_OF_BAPTISM" class="java.lang.String"/>
+	<parameter name="SPONSOR" class="java.lang.String"/>
+	<parameter name="BOOK_NO" class="java.lang.String"/>
+	<parameter name="PAGE_NO" class="java.lang.String"/>
+	<parameter name="LINE_NO" class="java.lang.String"/>
+	<parameter name="PRIEST_IN_CHARGE" class="java.lang.String"/>
+	<background>
+		<band height="752">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="752" uuid="a4c8dd1d-c5aa-4455-af59-7cef9bc5c86d"/>
+				<graphicElement>
+					<pen lineWidth="5.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="7" y="6" width="560" height="740" uuid="e0d62280-d3ce-4197-914c-70a791e20cce"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="149" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement stretchType="RelativeToBandHeight" x="5" y="1" width="150" height="148" uuid="44976555-3431-4ee5-8b22-575c67268564"/>
+				<imageExpression><![CDATA[getClass().getResourceAsStream("/images/st_francis_of_assisi_logo.png")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="251" y="25" width="125" height="15" uuid="44fc0d17-103e-4985-a5bf-e66e6c13a860"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIOCESE OF CALBAYOG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="38" width="312" height="31" uuid="6d18cdc9-85f0-4b17-adf2-95ac6baddb78"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ST. FRANCIS OF ASSISI MISSION CENTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="62" width="175" height="15" uuid="65c73b6f-5264-4d1f-ae40-7e314411cd45"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRGY. CALAPI, MOTIONG, SAMAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="102" width="405" height="41" uuid="a1d3d056-236b-4057-ac8e-69fdd82c1dc4"/>
+				<textElement>
+					<font fontName="SansSerif" size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF BAPTISM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="526" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="44" width="100" height="20" uuid="92f02f09-d88f-47f3-b696-e01b0c1304c5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name of Child]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="65" width="100" height="20" uuid="4446ab7c-abee-4950-92cb-ca969d550aa6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="86" width="100" height="20" uuid="faf178e5-59fa-4945-9f90-c793b774b2f4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Place of Birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="107" width="100" height="20" uuid="e0673c7c-a1be-4a4f-9847-2f20f60b2c19"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name of Father]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="128" width="100" height="20" uuid="3566b9e5-dd95-472d-87df-54c0d5b8e217"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name of Mother]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="149" width="100" height="13" uuid="567a3826-7416-42cd-bb6a-a63625474491"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[(Mother's Maiden Family Name)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="183" width="100" height="20" uuid="bf3681d2-a8ca-498c-b426-8f8a9d3966d8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Parent's Residence]]></text>
+			</staticText>
+			<line>
+				<reportElement x="132" y="64" width="359" height="1" uuid="4e2f674a-bee2-4af0-8e0b-c0a325191934"/>
+			</line>
+			<line>
+				<reportElement x="132" y="86" width="359" height="1" uuid="b3aa799d-c5a0-47ec-8658-9e6562d7940c"/>
+			</line>
+			<line>
+				<reportElement x="132" y="105" width="359" height="1" uuid="cff4c225-8115-495b-b7de-71a59d49e8f2"/>
+			</line>
+			<line>
+				<reportElement x="132" y="128" width="359" height="1" uuid="64d17105-f1b3-4a69-80c8-4abde3be9503"/>
+			</line>
+			<line>
+				<reportElement x="132" y="148" width="359" height="1" uuid="8579e484-82f5-4cc7-8bb9-2e8530369776"/>
+			</line>
+			<staticText>
+				<reportElement x="30" y="204" width="100" height="20" uuid="9cbb1c32-dd24-4dc7-892e-24d32c378a14"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Baptism]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="225" width="100" height="20" uuid="9c424f6c-f02d-4f56-ad4e-e74fd5cd69ad"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Minister of Baptism]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="247" width="100" height="20" uuid="31495eef-6187-486d-8ecf-5e847fca85c5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Baptism Sponsors]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="89" width="359" height="15" uuid="55d24940-bb2e-4a5b-be72-25582b2c26b2"/>
+				<textFieldExpression><![CDATA[$P{PLACE_OF_BIRTH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="70" width="359" height="15" uuid="d94de548-93c5-4713-86a2-b37959df86f9"/>
+				<textFieldExpression><![CDATA[$P{DATE_OF_BIRTH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="48" width="359" height="15" uuid="7830446f-3619-4750-bb69-d61e7b50f84c"/>
+				<textFieldExpression><![CDATA[$P{CHILD_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="112" width="359" height="15" uuid="d884117c-8118-47a2-840e-c0fc6165591a"/>
+				<textFieldExpression><![CDATA[$P{NAME_OF_FATHER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="130" width="359" height="18" uuid="48468d6c-ce84-483b-855d-5923fdb1f989"/>
+				<textFieldExpression><![CDATA[$P{NAME_OF_MOTHER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="132" y="204" width="359" height="1" uuid="b6e2ff35-70d4-4d8d-8c29-8e28a2a785c4"/>
+			</line>
+			<line>
+				<reportElement x="132" y="224" width="359" height="1" uuid="d55b152b-24a6-443a-aa4c-0d008dfdf98c"/>
+			</line>
+			<line>
+				<reportElement x="132" y="246" width="359" height="1" uuid="9549464d-0850-449d-bb26-dcf44d078e18"/>
+			</line>
+			<line>
+				<reportElement x="132" y="301" width="359" height="1" uuid="a7e1c4db-0f18-4d11-8c7e-dd79844f808f"/>
+			</line>
+			<line>
+				<reportElement x="264" y="420" width="227" height="1" uuid="ed9c017e-2639-4a83-a65c-9f4d47d0515b"/>
+			</line>
+			<staticText>
+				<reportElement x="336" y="423" width="100" height="20" uuid="e3647e4d-1df4-44db-a10e-d001b7a7ba85"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRIEST IN CHARGE]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="188" width="359" height="15" uuid="6ae4667f-2862-4f61-8532-e849f7b9a815"/>
+				<textFieldExpression><![CDATA[$P{PARENTS_RESIDENCE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="209" width="359" height="15" uuid="19429ff6-aff9-4252-8e85-5f6a9eb4ab79"/>
+				<textFieldExpression><![CDATA[$P{DATE_OF_BAPTISM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="247" width="359" height="49" uuid="606f491b-fbd7-441a-99c0-eebc16507e1d"/>
+				<textFieldExpression><![CDATA[$P{SPONSOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="210" y="404" width="335" height="15" uuid="a83cc65a-d11d-4d74-b60b-88af6593c22c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{PRIEST_IN_CHARGE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="443" width="53" height="20" uuid="4b756b12-b106-4f48-919a-8989d0d90756"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Book No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="463" width="53" height="20" uuid="7bd9da39-1c7f-49c8-8946-fe4a069dff08"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="483" width="53" height="20" uuid="2c263482-85c5-4a78-847b-198383896e7a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Line No:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="85" y="463" width="35" height="1" uuid="5a3ff7aa-afab-49db-ad49-c7368287f7a7"/>
+			</line>
+			<line>
+				<reportElement x="85" y="483" width="35" height="1" uuid="a60f044a-c91f-420b-977b-4accddfb69a4"/>
+			</line>
+			<line>
+				<reportElement x="85" y="502" width="35" height="1" uuid="1dbcd219-b3df-414f-b78d-35bcc69a8a69"/>
+			</line>
+			<textField>
+				<reportElement mode="Opaque" x="85" y="447" width="35" height="15" uuid="069b525e-f6a8-4388-a561-8620e43b05c9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{BOOK_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="85" y="467" width="35" height="15" uuid="4b1d5e76-cdea-4f96-8fcc-2e0aa83da5b7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{PAGE_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="85" y="486" width="35" height="15" uuid="4f89be19-d2ff-49d2-96a5-26fb540325e1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{LINE_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="229" width="335" height="15" uuid="f020b6cc-1d34-4493-90cc-c73d41fa6d3e"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$P{MINISTER_OF_BAPTISM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="12" width="525" height="46" uuid="58f1808e-5a9b-4884-9455-03d743eb3e9c"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTANT
+To Parents or Guardian: Please verify all information appearing in this certificate. Any incorrect information
+should be reported to the Parish Registrar's Office for correction within three (3) days from date of Baptism.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
