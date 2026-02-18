@@ -44,5 +44,15 @@ public interface BaptismRepository extends JpaRepository<BaptismRecord, Long> {
 	            @Param("startDate") LocalDate startDate,
 	            @Param("endDate") LocalDate endDate
 	    );
+	
+	@Query("""
+		    SELECT MONTH(b.dateOfBaptism), COUNT(b)
+		    FROM BaptismRecord b
+		    WHERE YEAR(b.dateOfBaptism) = :year
+		    GROUP BY MONTH(b.dateOfBaptism)
+		    ORDER BY MONTH(b.dateOfBaptism)
+		""")
+		List<Object[]> countBaptismsPerMonth(@Param("year") int year);
+
 
 }
