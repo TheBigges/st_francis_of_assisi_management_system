@@ -69,13 +69,14 @@ public class WeddingController {
 		if (!StringUtils.isBlank(keyword) && !ObjectUtils.isEmpty(weddingRecords)) {
 		    weddingRecords = weddingRecords.stream()
 		        .filter(a -> 
-		            (a.groomLastName() != null && a.groomLastName().contains(keyword)) ||
-		            (a.brideLastName() != null && a.brideLastName().contains(keyword))
+		            (a.groomLastName() != null && a.groomLastName().toUpperCase().contains(keyword.toUpperCase())) ||
+		            (a.brideLastName() != null && a.brideLastName().toUpperCase().contains(keyword.toUpperCase()))
 		        )
 		        .collect(Collectors.toList());
 		}
 
 		model.addAttribute("weddingRecords", weddingRecords);
+		model.addAttribute("keyword", StringUtils.isNotBlank(keyword)?keyword:"");
 		return "wedding";
 	}
 
