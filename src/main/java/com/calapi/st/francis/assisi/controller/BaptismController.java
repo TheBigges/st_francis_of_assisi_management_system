@@ -55,6 +55,7 @@ public class BaptismController {
 		List<BaptismRecordDto> baptismRecords = BaptismMapper.INSTANCE.entityToDtoList(records);
 		model.addAttribute("baptismRecordDto", new BaptismRecordDto());
 		model.addAttribute("baptismRecods", baptismRecords);
+		model.addAttribute("keyword", StringUtils.isNotBlank(keyword)?keyword:"");
 		return "baptism";
 	}
 

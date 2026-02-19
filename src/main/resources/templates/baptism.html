@@ -35,9 +35,9 @@
 			<form th:action="@{/baptism}" class="search-wrapper">
 				<i class="fa fa-search"></i> <input id="keyword" type="search"
 					name="keyword" th:value="${keyword}" required
-					class="form-control keyword-input" placeholder="Enter keyword">
+					class="form-control keyword-input" placeholder="Enter keyword"/>
 				<button type="submit" class="btn btn-secondary">Search</button>
-				<button id="btnClear" class="btn btn-info"
+				<button type="button" id="btnClear" class="btn btn-info"
 					style="margin-left: 10px;">Clear</button>
 			</form>
 			<button class="add-btn" onclick="openModal1('POST')">Add New</button>

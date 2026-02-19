@@ -188,7 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const btnClear = document.getElementById('weddingBtnClear');
 
 	if (btnClear) {
-		btnClear.addEventListener('click', function() {
+		btnClear.addEventListener('click', function(e) {
+			e.preventDefault();
 			window.location.href = '/wedding'; // change to your target URL
 		});
 	}

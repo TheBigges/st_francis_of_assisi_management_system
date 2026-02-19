@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const btnClear = document.getElementById('btnClear');
 
 	if (btnClear) {
-		btnClear.addEventListener('click', function() {
+		btnClear.addEventListener('click', function(e) {
+			e.preventDefault();
 			window.location.href = '/baptism'; // change to your target URL
 		});
 	}
