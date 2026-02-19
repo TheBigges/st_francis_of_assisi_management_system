@@ -24,7 +24,7 @@ public class DashboardController {
 	@Autowired
 	DashboardService dashboardService;
 
-	@GetMapping({"/", "/home"})
+	@GetMapping({"/", "/home", "/dashboard"})
     public String dashboard(
             @RequestParam(value = "year", required = false) Integer year,
             Model model) {
