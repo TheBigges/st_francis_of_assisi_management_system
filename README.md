@@ -9,3 +9,5 @@ This is a software management system intended to be used by Brgy Calapi Motiong 
   <img width="1883" height="800" alt="image" src="https://github.com/user-attachments/assets/e9a0a5c3-5206-457d-a67f-473f7af60f3f" />
 - __Wedding__ - Addition and Update of wedding records together with automatic generation of Marriage Certificate
   <img width="1900" height="843" alt="image" src="https://github.com/user-attachments/assets/d0bacf8b-8661-4dd6-a534-e6a3c657061c" />
+- __Confirmation__ - Addition and Update of confirmation records together with automatic generation of Confirmation Certificate
+- __Funeral__ - Addition and Update of funeral records together with automatic generation of Death Certificate
