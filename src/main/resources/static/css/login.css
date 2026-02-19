@@ -1,0 +1,123 @@
+/* ==========================================
+   St. Francis Login Design
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+3:wght@300;400;500&display=swap');
+
+:root {
+    --brown-dark: #3b2a1d;
+    --brown-soft: #5a3e2b;
+    --gold-accent: #b08d57;
+    --cream: #f5f1e8;
+    --error: #9b2c2c;
+    --success: #2f855a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body  {
+	height: 100vh;
+	font-family: 'Source Sans 3', sans-serif;
+	background:
+        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+        url('/images/st-francis-bg.png');
+	background-size: cover; 
+	display : flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: flex;
+}
+
+/* White semi-transparent overlay */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Adjust transparency here */
+    backdrop-filter: none; /* Optional soft blur */
+    z-index: 1;
+}
+
+/* Login Card */
+.login-container {
+    position: relative;
+    z-index: 2;
+    width: 360px;
+    padding: 40px 35px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+/* Title */
+.login-container h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--brown-dark);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--gold-accent);
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+form input {
+    width: 100%;
+    padding: 11px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #d7ccc2;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: var(--cream);
+    transition: 0.3s;
+}
+
+form input:focus {
+    outline: none;
+    border-color: var(--gold-accent);
+    box-shadow: 0 0 5px rgba(176, 141, 87, 0.4);
+}
+
+/* Button */
+form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--brown-soft);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: var(--brown-dark);
+    transform: translateY(-2px);
+}
+
+/* Messages */
+.error {
+    margin-top: 15px;
+    color: var(--error);
+    font-size: 14px;
+}
+
+.success {
+    margin-top: 15px;
+    color: var(--success);
+    font-size: 14px;
+}
