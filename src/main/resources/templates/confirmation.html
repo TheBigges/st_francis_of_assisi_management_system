@@ -1,42 +1,223 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Confirmation Records</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+<meta charset="UTF-8">
+<title>Confirmation Records</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
 </head>
 <body>
-<div class="nav">
-    <button onclick="navigate('baptism')" class="tab-btn">Baptism</button>
-    <button onclick="navigate('wedding')" class="tab-btn">Wedding</button>
-    <button onclick="navigate('confirmation')" class="tab-btn">Confirmation</button>
-</div>
+	<div th:replace="fragments/navbar :: navbar"></div>
 
-<div class="content">
-    <h2>Confirmation Records</h2>
-    <input type="text" id="search" placeholder="Search records...">
-    <button onclick="addRecord()">Add New</button>
+	<div class="content">
+		<h2>Confirmation Records</h2>
+		<div class="my-3">
+			<form th:action="@{/confirmation}" class="search-wrapper">
+				<i class="fa fa-search"></i> <input id="keyword" type="search"
+					name="keyword" th:value="${keyword}" required
+					class="form-control keyword-input" placeholder="Enter keyword" />
+				<button type="submit" class="btn btn-secondary">Search</button>
+				<button type="button" id="btnClear" class="btn btn-info"
+					style="margin-left: 10px;">Clear</button>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody id="recordTable">
-        <tr th:each="record : ${records}">
-            <td th:text="${record.name}">Alex Smith</td>
-            <td th:text="${record.date}">2025-03-01</td>
-            <td>
-                <button onclick="editRecord()">Edit</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+			</form>
 
-<script th:src="@{/js/dashboard.js}"></script>
+			<button class="add-btn" onclick="openConfirmationModal('POST')">Add
+				New</button>
+		</div>
+		<table>
+			<thead class="thead-confirmation">
+				<tr>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Confirmation Date</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="recordTable">
+				<tr th:each="confirmationRecord : ${confirmationRecords}">
+					<td
+						th:text="${confirmationRecord.firstName}"></td>
+					<td
+						th:text="${confirmationRecord.middleName}"></td>
+					<td th:text="${confirmationRecord.lastName}"></td>
+					<td th:text="${confirmationRecord.confirmationDate}"></td>
+					<td>
+						<button type="button" th:attr="data-record=${confirmationRecord}"
+							onclick="editConfirmation(this)">Edit</button>
+						<button type="button" th:attr="data-record=${confirmationRecord}"
+							onclick="printConfirmationDocument(this)">Print</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="margin-top: 15px;">
+			<label for="pageSize">Rows per page:</label> <select id="pageSize">
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+
+			<button id="prevPage">Previous</button>
+			<span id="pageInfo"></span>
+			<button id="nextPage">Next</button>
+		</div>
+	</div>
+
+	<div id="confirmationModal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeConfirmationModal()">&times;</span>
+			<h2 class="modal-title">Confirmation Record Form</h2>
+
+			<form th:action="@{/confirmation/save}" method="post"
+				enctype="multipart/form-data" th:object="${confirmationRecordDto}"
+				class="modal-form">
+				<!-- Personal Info -->
+				<fieldset>
+					<legend>Personal Information</legend>
+					<div class="form-row-3">
+						<div class="form-group">
+							<label>First Name</label> <input type="text"
+								th:field="*{firstName}" name="firstName" required>
+						</div>
+						<div class="form-group">
+							<label>Middle Name</label> <input type="text"
+								th:field="*{middleName}" name="middleName">
+						</div>
+						<div class="form-group">
+							<label>Last Name</label> <input type="text"
+								th:field="*{lastName}" name="lastName" required>
+						</div>
+					</div>
+
+					<div class="form-row-2">
+						<div class="form-group">
+							<label>Date of Batism</label> <input type="date"
+								th:field="*{baptismDate}" name="baptismDate">
+						</div>
+
+						<div class="form-group">
+							<label>Date of Confirmation</label> <input type="date"
+								th:field="*{confirmationDate}" name="confirmationDate">
+						</div>
+					</div>
+				</fieldset>
+				
+				<!-- Parents Information  -->
+				<fieldset>
+					<legend>Parents Information</legend>
+					<div class="form-row-2">
+						<div class="form-group">
+							<label>Father's Full Name</label> 
+							<input id="fathersFullName" type="text"
+								th:field="*{fathersFullName}" name="fathersFullName"
+								placeholder="Father's Full Name" />
+						</div>
+					</div>
+					<div class="form-row-2">
+						<div class="form-group">
+							<label>Mother's Full Name</label> 
+							<input id="mothersFullName" type="text"
+								th:field="*{mothersFullName}" name="mothersFullName"
+								placeholder="Mother's Full Name" />
+						</div>
+					</div>
+				</fieldset>
+				
+				<!-- Minister -->
+				<fieldset>
+					<legend>Place of Confirmation</legend>
+					<div class="form-row-2">
+						<div class="form-group">
+							<label>Dioces</label> 
+							<input id="dioces" type="text" th:field="*{dioces}"
+								name="dioces"
+								placeholder="Dioces the church belongs to" />
+						</div>
+					</div>
+					<div class="form-row-2">
+						<div class="form-group">
+							<label>Mission Center/Parish</label> 
+							<input id="churchLocation" type="text" th:field="*{churchLocation}"
+								name="churchLocation"
+								placeholder="Name of the Church" />
+						</div>
+					</div>
+					<div class="form-row-2">
+						<div class="form-group">
+							<label>State/Church Location</label> 
+							<input id="placeOfConfirmation" type="text" th:field="*{placeOfConfirmation}"
+								name="placeOfConfirmation"
+								placeholder="Location of the Church" />
+						</div>
+					</div>
+				</fieldset>
+
+				<!-- Sponsors -->
+				<fieldset>
+					<legend>Sponsors</legend>
+					<textarea th:field="*{sponsor}" id="sponsor" name="sponsor"
+						rows="4" placeholder="List of Sponsors"></textarea>
+				</fieldset>
+				
+				<!-- Minister -->
+				<fieldset>
+					<legend>Minister</legend>
+					<div class="form-row-2">
+						<div class="form-group">
+							<input id="presider" type="text" th:field="*{presider}"
+								name="presider"
+								placeholder="Full name of the Confirmation minister" />
+						</div>
+					</div>
+				</fieldset>
+				<!-- Minister -->
+				<fieldset>
+					<legend>Priest In Charge</legend>
+					<div class="form-row-2">
+						<div class="form-group">
+							<input id="priestInCharge" type="text"
+								th:field="*{priestInCharge}" name="priestInCharge"
+								placeholder="Full name of Priest in Charge" />
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend>Record Details</legend>
+					<input id="bookNo" type="text" th:field="*{bookNo}" name="bookNo"
+						placeholder="Book Number" /> <input id="pageNo" type="text"
+						th:field="*{pageNo}" name="pageNo" placeholder="Page Number" /> <input
+						id="lineNo" type="text" th:field="*{lineNo}" name="lineNo"
+						placeholder="Line Number" />
+				</fieldset>
+
+				<div class="form-actions">
+					<button id="confirmationSubmitButton" type="submit">Save Record</button>
+					<button type="button" id="confirmationUpdateButton">Update
+						Record</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Loading Modal -->
+	<div id="loadingModal" class="loading-modal">
+		<div class="loading-content">
+			<div class="spinner"></div>
+			<p>Generating PDF, please wait…</p>
+		</div>
+	</div>
+
+	<script th:src="@{/js/confirmation.js}"></script>
+	<script th:src="@{/js/common.js}"></script>
 </body>
 </html>

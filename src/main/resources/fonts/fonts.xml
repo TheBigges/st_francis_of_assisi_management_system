@@ -8,4 +8,18 @@
         <pdfEncoding>Identity-H</pdfEncoding>
         <pdfEmbedded>true</pdfEmbedded>
     </fontFamily>
+    <fontFamily name="Palatino Linotype">
+        <normal>fonts/palatinolinotype_roman.ttf</normal>
+        <bold>fonts/palatinolinotype_bold.ttf</bold>
+        <italic>fonts/palatinolinotype_italic.ttf</italic>
+        <boldItalic>fonts/palatinolinotype_bolditalic.ttf</boldItalic>
+        <pdfEncoding>Identity-H</pdfEncoding>
+        <pdfEmbedded>true</pdfEmbedded>
+    </fontFamily>
+    <fontFamily name="Mistral">
+        <normal>fonts/MISTRAL.TTF</normal>
+        <bold>fonts/MISTRAL.TTF</bold>
+        <pdfEncoding>Identity-H</pdfEncoding>
+        <pdfEmbedded>true</pdfEmbedded>
+    </fontFamily>
 </fontFamilies>

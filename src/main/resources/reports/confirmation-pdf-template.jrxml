@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="confirmation-pdf-template" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51be9a5d-1724-474a-ae90-73b3cb2b808a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="94"/>
+	<parameter name="P_FULL_NAME" class="java.lang.String"/>
+	<parameter name="P_FATHER" class="java.lang.String"/>
+	<parameter name="P_MOTHER" class="java.lang.String"/>
+	<parameter name="P_BAPTISM_DATE" class="java.lang.String"/>
+	<parameter name="P_CONFIRMATION_DATE" class="java.lang.String"/>
+	<parameter name="P_PLACE" class="java.lang.String"/>
+	<parameter name="P_DIOCES" class="java.lang.String"/>
+	<parameter name="P_PRECIDER" class="java.lang.String"/>
+	<parameter name="P_SPONSOR" class="java.lang.String"/>
+	<parameter name="P_PRIEST_IN_CHARGE" class="java.lang.String"/>
+	<parameter name="P_CHURCH" class="java.lang.String"/>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image>
+				<reportElement x="6" y="0" width="606" height="752" uuid="bd177116-4b5e-4af0-ac2c-87e363076ed7"/>
+				<imageExpression><![CDATA[getClass().getResourceAsStream("/images/confimation-bg.png")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="25" y="14" width="218" height="165" uuid="9447f03e-cc58-4514-8305-0a00dff44578"/>
+				<imageExpression><![CDATA[getClass().getResourceAsStream("/images/st_francis_of_assisi_logo.png")]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<detail>
+		<band height="752" splitType="Stretch">
+			<staticText>
+				<reportElement x="159" y="49" width="375" height="20" uuid="c0d976ab-ae69-4b1c-8a03-70d706667078"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIOCES OF CALBAYOG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="91" width="375" height="21" uuid="e4e2c3a5-48ae-4686-a914-42b51913c233"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRGY. CALAPI MOTIONG, SAMAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="69" width="375" height="21" uuid="6e74e19b-cbec-422e-999a-48ba25fbbb98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ST. FRANCIS OF ASSISI MISSION CENTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="185" width="430" height="50" uuid="1ab0d32b-b8ef-42cc-b6b5-d6cf2cd1496a"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Mistral" size="40" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Confirmation Certificate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="250" width="430" height="25" uuid="711a8ccd-c3c3-448d-af89-acd1ea9aa540"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[This certifies that]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="276" width="444" height="32" uuid="89fc068d-c906-4862-a10f-9035b14eac1e"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[___________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="309" width="444" height="29" uuid="a7cd43ad-d2fa-451c-9627-ca53f57168e3"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Son/Daughter  of __________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="338" width="444" height="29" uuid="13c47f3d-a1bc-4b69-92a9-3f87e7759443"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[and ______________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="367" width="444" height="29" uuid="41ebac7e-a7a9-43b5-ab36-94848f89b06a"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[was baptized on___________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="396" width="94" height="29" uuid="f9eb5444-723a-4907-9e8e-028c894ca30a"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Received the]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="397" width="303" height="29" uuid="012b4062-a0c7-410a-abd8-405c2e404a38"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Mistral" size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sacrament of Confirmation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="426" width="444" height="29" uuid="a7b9cf28-9464-4587-90fd-d28f5b2b3ffd"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[on _______________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="455" width="444" height="29" uuid="ddae7005-2249-4006-9df2-685b608afba4"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[in the Church of___________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="484" width="444" height="29" uuid="6d069625-a7af-41bc-ac20-0e9b7e257488"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[At _______________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="513" width="444" height="29" uuid="611b6e1b-ffe1-4333-be13-921a92f97f9d"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[in the Dioces of____________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="542" width="444" height="29" uuid="32fdf7d7-ef23-4950-9cd0-db2c69d53e78"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[by the____________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="571" width="444" height="29" uuid="538bde8f-1e40-4e3f-bf69-902db3782e85"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[the sponsor being _________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="645" width="458" height="29" uuid="960d0ad1-a069-4b13-be30-dc5180d6dfd6"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issued by: ______________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="674" width="248" height="29" uuid="cdcfe2ec-0822-400e-8872-9bd9e6999563"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Priest-in-Charge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="338" width="43" height="12" uuid="5b996cf7-d099-4729-b78a-2f5d5346c58c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(FATHER)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="367" width="43" height="12" uuid="b2551607-e839-4e64-8c35-6a60f711247b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(MOTHER)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="455" width="63" height="12" uuid="98400edb-c025-4355-9460-57fd929ac426"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(MONTH)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="455" width="63" height="12" uuid="880543d5-f640-44a1-80bc-5929286b8c0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(DAY)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="455" width="63" height="12" uuid="9913cd84-eece-4f48-bf18-bc27691f8ae7"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Palatino Linotype" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(YEAR)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="288" width="430" height="20" uuid="2ca6a30c-edb6-416f-a907-06b69df946f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_FULL_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="190" y="318" width="322" height="20" uuid="1a2b777e-4730-4465-80f8-9a172f51e612"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_FATHER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="119" y="347" width="393" height="20" uuid="c9923f58-c0d1-421c-b74c-e5f47e65b38e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_MOTHER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="376" width="332" height="20" uuid="f7f63ac1-23a6-4de6-a9d7-6bde3b588cad"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_BAPTISM_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="435" width="423" height="20" uuid="08da5722-1301-4018-adf3-19cbfd6e1889"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CONFIRMATION_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="464" width="332" height="20" uuid="712c19f2-553c-4435-aa55-9162e261c8ce"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CHURCH}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="101" y="493" width="411" height="20" uuid="76b1e4ba-14b0-4c18-b15c-956c197761d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_PLACE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="522" width="332" height="20" uuid="96ada640-50f2-4e31-9cf3-2cbd77df378f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_DIOCES}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="119" y="551" width="393" height="20" uuid="3ee1efb0-3b73-4585-90ce-d21da8ded22f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_PRECIDER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="190" y="580" width="322" height="20" uuid="af872af2-b26b-48a7-9023-36872f95afb8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_SPONSOR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="654" width="246" height="20" uuid="14488d56-eca0-4f89-a5b3-53b9bc42d2a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Palatino Linotype" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_PRIEST_IN_CHARGE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

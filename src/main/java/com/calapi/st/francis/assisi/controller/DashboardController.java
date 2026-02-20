@@ -37,13 +37,10 @@ public class DashboardController {
         		dashboardService.baptismMonthlyCountsByYear(selectedYear));
         model.addAttribute("weddingCounts", 
         		dashboardService.weddingMonthlyCountsByYear(selectedYear));
+        model.addAttribute("confirmationCounts", 
+        		dashboardService.confirmationMonthlyCountsByYear(selectedYear));
         model.addAttribute("selectedYear", selectedYear);
         return "dashboard";
     }
 
-    @GetMapping("/confirmation")
-    public String confirmation(Model model) {
-        model.addAttribute("records", recordService.getConfirmationRecords());
-        return "confirmation";
-    }
 }
