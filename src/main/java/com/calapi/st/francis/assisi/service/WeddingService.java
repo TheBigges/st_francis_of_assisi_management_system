@@ -26,7 +26,7 @@ public class WeddingService {
 	private final PdfReportService pdfReportService;
 	private final WeddingRepository weddingRepository;
 	private final ReportsMapper reportsMapper;
-	private final String path = "reports/wedding-pdf-template.jrxml";;
+	private final String path = "reports/wedding-pdf-template.jrxml";
 
 	public WeddingService(WeddingMapper weddingMapper, PdfReportService pdfReportService,
 			WeddingRepository weddingRepository, ReportsMapper reportsMapper) {

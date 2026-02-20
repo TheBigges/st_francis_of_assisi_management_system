@@ -4,31 +4,31 @@ function navigate(tab) {
 	window.location.href = '/' + tab;
 }
 
-function editWeddingData(button) {
+function editConfirmation(button) {
 
-	document.getElementById("weddingSubmitButton").hidden = true;
-	document.getElementById("weddingUpdateButton").hidden = false;
+	document.getElementById("confirmationSubmitButton").hidden = true;
+	document.getElementById("confirmationUpdateButton").hidden = false;
 	try {
 
 		const recordJson = button.getAttribute("data-record");
 		const record = dtoStringToJson(recordJson);
 		console.log(record);
-		window.currentRecordId = record["coupleUuid"];
-		openWeddingModalUpdate("PUT", record["coupleUuid"]);
+		window.currentRecordId = record["recordUuid"];
+		opeConfirmationModalUpdate("PUT", record["recordUuid"]);
 	} catch (e) {
-		document.getElementById("weddingSubmitButton").hidden = false;
-		document.getElementById("weddingUpdateButton").hidden = true;
+		document.getElementById("confirmationSubmitButton").hidden = false;
+		document.getElementById("confirmationUpdateButton").hidden = true;
 		console.error("Failed to parse data-record:", e);
 	}
 }
 
-function openWeddingModalUpdate(newMethod, weddingId) {
+function opeConfirmationModalUpdate(newMethod, weddingId) {
 	// Show modal
-	document.getElementById('weddingModal').style.display = 'flex';
+	document.getElementById('confirmationModal').style.display = 'flex';
 
 	// Fetch data for PUT if childId is provided
 	if (newMethod === "PUT" && weddingId) {
-		fetch(`/wedding/${encodeURIComponent(weddingId)}`)
+		fetch(`/confirmation/${encodeURIComponent(weddingId)}`)
 			.then(response => {
 				if (!response.ok) {
 					throw new Error(`Failed to fetch record with ID ${weddingId}`);
@@ -45,8 +45,8 @@ function openWeddingModalUpdate(newMethod, weddingId) {
 	}
 }
 
-function openWeddingModal(newMethod, weddingRecords) {
-	document.getElementById('weddingModal').style.display = 'flex';
+function openConfirmationModal(newMethod, weddingRecords) {
+	document.getElementById('confirmationModal').style.display = 'flex';
 
 	if (typeof weddingRecords === "string") {
 		try {
@@ -59,8 +59,8 @@ function openWeddingModal(newMethod, weddingRecords) {
 
 	// Reset fields for POST
 	if (newMethod === "POST") {
-		document.getElementById("weddingSubmitButton").hidden = false;
-		document.getElementById("weddingUpdateButton").hidden = true;
+		document.getElementById("confirmationSubmitButton").hidden = false;
+		document.getElementById("confirmationUpdateButton").hidden = true;
 		form.reset();
 		return;
 	}
@@ -69,18 +69,18 @@ function openWeddingModal(newMethod, weddingRecords) {
 function populateWeddingModalFields(weddingRecord) {
 
 	const fields = [
-		"groomFirstName",
-		"groomMiddleName",
-		"groomLastName",
-		"groomDateOfBirth",
-		"groomReligion",
-		"brideFirstName",
-		"brideMiddleName",
-		"brideLastName",
-		"brideDateOfBirth",
-		"brideReligion",
-		"dateOfWedding",
-		"witnesses",
+		"firstName",
+		"middleName",
+		"lastName",
+		"baptismDate",
+		"confirmationDate",
+		"fathersFullName",
+		"mothersFullName",
+		"sponsor",
+		"presider",
+		"churchLocation",
+		"placeOfConfirmation",
+		"dioces",
 		"priestInCharge",
 		"bookNo",
 		"pageNo",
@@ -96,35 +96,35 @@ function populateWeddingModalFields(weddingRecord) {
 }
 
 
-function closeWeddingModal() {
-	document.getElementById('weddingModal').style.display = 'none';
-	document.getElementById("weddingSubmitButton").hidden = false;
-	document.getElementById("weddingUpdateButton").hidden = true;
+function closeConfirmationModal() {
+	document.getElementById('confirmationModal').style.display = 'none';
+	document.getElementById("confirmationSubmitButton").hidden = false;
+	document.getElementById("confirmationUpdateButton").hidden = true;
 }
 
 //Update record
 document.addEventListener('DOMContentLoaded', function() {
 
 	const fields = [
-		"groomFirstName",
-		"groomMiddleName",
-		"groomLastName",
-		"groomDateOfBirth",
-		"groomReligion",
-		"brideFirstName",
-		"brideMiddleName",
-		"brideLastName",
-		"brideDateOfBirth",
-		"brideReligion",
-		"dateOfWedding",
-		"witnesses",
+		"firstName",
+		"middleName",
+		"lastName",
+		"baptismDate",
+		"confirmationDate",
+		"fathersFullName",
+		"mothersFullName",
+		"sponsor",
+		"presider",
+		"churchLocation",
+		"placeOfConfirmation",
+		"dioces",
 		"priestInCharge",
 		"bookNo",
 		"pageNo",
 		"lineNo"
 	];
 
-	document.getElementById('weddingUpdateButton').addEventListener('click', function(e) {
+	document.getElementById('confirmationUpdateButton').addEventListener('click', function(e) {
 		e.preventDefault();
 		const payload = {};
 
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-		fetch('/wedding/update/' + window.currentRecordId, {
+		fetch('/confirmation/update/' + window.currentRecordId, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
@@ -190,26 +190,26 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (btnClear) {
 		btnClear.addEventListener('click', function(e) {
 			e.preventDefault();
-			window.location.href = '/wedding'; // change to your target URL
+			window.location.href = '/confirmation'; // change to your target URL
 		});
 	}
 });
 
-function printWeddingDocument(button){
-document.getElementById("loadingModal").style.display = "block";
+function printConfirmationDocument(button) {
+	document.getElementById("loadingModal").style.display = "block";
 
 	try {
 		const recordJson = button.getAttribute("data-record");
 		const record = dtoStringToJson(recordJson);
-		fetchCoupleData(record["coupleUuid"], record["groomFirstName"], record["brideFirstName"]);
+		fetchConfirmationData(record["recordUuid"], record["firstName"], record["lastNmae"]);
 	} catch (e) {
 		document.getElementById("loadingModal").style.display = "none";
 		console.error("Failed to parse data-record:", e);
-	}	
+	}
 }
 
-function fetchCoupleData(coupleUuid, groomFirstName, brideLastName){
-	fetch(`/wedding/download-pdf/${encodeURIComponent(coupleUuid)}`)
+function fetchConfirmationData(recordUuid, firstName, lastName) {
+	fetch(`/confirmation/download-pdf/${encodeURIComponent(recordUuid)}`)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error("PDF download failed");
@@ -222,7 +222,7 @@ function fetchCoupleData(coupleUuid, groomFirstName, brideLastName){
 			const a = document.createElement("a");
 			document.getElementById("loadingModal").style.display = "none";
 			a.href = url;
-			a.download = `${groomFirstName}_X_${brideLastName}-${coupleUuid}.pdf`;
+			a.download = `${firstName}_X_${lastName}-${recordUuid}.pdf`;
 			document.body.appendChild(a);
 			a.click();
 

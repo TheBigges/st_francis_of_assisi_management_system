@@ -62,7 +62,7 @@
 			<div class="card shadow-sm">
 				<div class="card-body">
 					<h5>Monthly Baptisms</h5>
-					<div style="height: 500px;">
+					<div style="height: 300px;">
 						<canvas id="baptismChart"></canvas>
 					</div>
 				</div>
@@ -74,8 +74,22 @@
 			<div class="card shadow-sm">
 				<div class="card-body">
 					<h5>Monthly Weddings</h5>
-					<div style="height: 500px;">
+					<div style="height: 300px;">
 						<canvas id="weddingChart"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<!-- Confirmation Card (left) -->
+		<div class="col-md-6">
+			<div class="card shadow-sm">
+				<div class="card-body">
+					<h5>Monthly Confirmations</h5>
+					<div style="height: 300px;">
+						<canvas id="confirmationChart"></canvas>
 					</div>
 				</div>
 			</div>
@@ -84,6 +98,7 @@
 	<script th:inline="javascript">
     const baptismCounts = [[${monthlyCounts}]];
     const weddingCounts = [[${weddingCounts}]];
+    const confirmationCounts = [[${confirmationCounts}]];
     const selectedYear = [[${selectedYear}]];
 
     new Chart(document.getElementById('baptismChart'), {
@@ -103,6 +118,7 @@
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true,
@@ -130,6 +146,34 @@
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 5, precision: 0 }
+                }
+            }
+        }
+    });
+    new Chart(document.getElementById('confirmationChart'), {
+        type: 'bar',
+        data: {
+            labels: [
+                'January', 'February', 'March', 'April',
+                'May', 'June', 'July', 'August',
+                'September', 'October', 'November', 'December'
+            ],
+            datasets: [{
+                label: 'Confirmations (' + selectedYear + ')',
+                data: confirmationCounts,
+                backgroundColor: 'green',  // bar fill color
+                borderWidth: 1,
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true,

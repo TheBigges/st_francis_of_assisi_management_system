@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Wedding Records</title>
+<title>Confirmation Records</title>
 <link rel="stylesheet" th:href="@{/css/styles.css}">
 
 <link
@@ -22,7 +22,7 @@
 					name="keyword" th:value="${keyword}" required
 					class="form-control keyword-input" placeholder="Enter keyword" />
 				<button type="submit" class="btn btn-secondary">Search</button>
-				<button type="button" id="weddingBtnClear" class="btn btn-info"
+				<button type="button" id="btnClear" class="btn btn-info"
 					style="margin-left: 10px;">Clear</button>
 
 			</form>
@@ -33,10 +33,10 @@
 		<table>
 			<thead class="thead-wedding">
 				<tr>
-					<th>GROOM</th>
-					<th>BRIDE</th>
-					<th>WEDDING DATE</th>
-					<th>ACTIONS</th>
+					<th>Groom</th>
+					<th>Bride</th>
+					<th>Wedding Date</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody id="recordTable">

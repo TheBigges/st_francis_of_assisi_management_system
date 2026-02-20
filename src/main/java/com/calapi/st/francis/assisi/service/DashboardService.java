@@ -29,8 +29,10 @@ public class DashboardService {
 		LocalDate startOfYear = LocalDate.of(year, 1, 1);
 		LocalDate endOfYear = LocalDate.of(year, 12, 31);
 
+		//add funeral query when available
 		return new DashboardStatsDto(baptismRepository.countByYear(startOfYear, endOfYear),
-				weddingRepository.countByYear(startOfYear, endOfYear), 0, 0);
+				weddingRepository.countByYear(startOfYear, endOfYear),
+				confirmationRepository.countByYear(startOfYear, endOfYear), 0);
 	}
 
 	public int[] baptismMonthlyCountsByYear(int selectedYear) {
@@ -43,9 +45,20 @@ public class DashboardService {
 		}
 		return monthlyCounts;
 	}
-	
+
 	public int[] weddingMonthlyCountsByYear(int selectedYear) {
 		List<Object[]> results = weddingRepository.countWeddingsPerMonth(selectedYear);
+		int[] monthlyCounts = new int[12];
+		for (Object[] row : results) {
+			int month = (Integer) row[0];
+			long count = (Long) row[1];
+			monthlyCounts[month - 1] = (int) count;
+		}
+		return monthlyCounts;
+	}
+
+	public int[] confirmationMonthlyCountsByYear(int selectedYear) {
+		List<Object[]> results = confirmationRepository.countConfirmationPerMonth(selectedYear);
 		int[] monthlyCounts = new int[12];
 		for (Object[] row : results) {
 			int month = (Integer) row[0];
