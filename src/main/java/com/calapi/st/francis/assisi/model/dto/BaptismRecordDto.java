@@ -2,9 +2,6 @@ package com.calapi.st.francis.assisi.model.dto;
 
 import java.time.LocalDate;
 
-
-import java.time.LocalDate;
-
 public record BaptismRecordDto(
 
     String childUuid,
