@@ -13,12 +13,9 @@ import com.calapi.st.francis.assisi.dto.mapper.BaptismMapper;
 import com.calapi.st.francis.assisi.dto.mapper.ReportsMapper;
 import com.calapi.st.francis.assisi.exception.ResourceNotFoundException;
 import com.calapi.st.francis.assisi.model.BaptismRecord;
-import com.calapi.st.francis.assisi.model.WeddingRecord;
 import com.calapi.st.francis.assisi.model.dto.BaptismRecordDto;
-import com.calapi.st.francis.assisi.model.dto.WeddingRecordDto;
 import com.calapi.st.francis.assisi.repository.BaptismRepository;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
