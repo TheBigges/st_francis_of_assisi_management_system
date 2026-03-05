@@ -13,7 +13,7 @@ RUN mvn dependency:go-offline
 COPY src ./src
 
 # Build application
-RUN mvn clean package -DskipTests
+RUN mvn clean install package -DskipTests
 
 
 # ==============================
@@ -40,9 +40,9 @@ COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 
 # JVM optimization for containers
-ENV JAVA_OPTS="-XX:+UseContainerSupport \
-               -XX:MaxRAMPercentage=75.0 \
+ENV JAVA_OPTS="-Xms256m -Xmx1000m \
                -XX:+UseG1GC \
+               -XX:+UseContainerSupport\
                -Djava.security.egd=file:/dev/./urandom"
 
 # Healthcheck (optional but recommended)
