@@ -40,7 +40,7 @@ COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 
 # JVM optimization for containers
-ENV JAVA_OPTS="-Xms256m -Xmx1000m \
+ENV JAVA_OPTS="-Xms256m -Xmx750m \
                -XX:+UseG1GC \
                -XX:+UseContainerSupport\
                -Djava.security.egd=file:/dev/./urandom"

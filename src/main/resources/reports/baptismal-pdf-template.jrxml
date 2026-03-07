@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="baptismal-pdf-template" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="896fc5bd-9680-4fe7-93cc-f932b09030ca">
 	<property name="ireport.zoom" value="2.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="493"/>
+	<property name="ireport.x" value="252"/>
+	<property name="ireport.y" value="13"/>
 	<parameter name="CHILD_NAME" class="java.lang.String"/>
 	<parameter name="DATE_OF_BIRTH" class="java.lang.String"/>
 	<parameter name="PLACE_OF_BIRTH" class="java.lang.String"/>
@@ -60,9 +60,9 @@
 				<text><![CDATA[BRGY. CALAPI, MOTIONG, SAMAR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="143" y="102" width="405" height="41" uuid="a1d3d056-236b-4057-ac8e-69fdd82c1dc4"/>
+				<reportElement x="144" y="102" width="423" height="41" uuid="a1d3d056-236b-4057-ac8e-69fdd82c1dc4"/>
 				<textElement>
-					<font fontName="SansSerif" size="30" isBold="true"/>
+					<font fontName="SansSerif" size="29" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CERTIFICATE OF BAPTISM]]></text>
 			</staticText>
