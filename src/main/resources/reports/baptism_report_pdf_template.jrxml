@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f9b143c0-df23-44cc-ba97-1c5e97bf8a14">
+	<property name="ireport.zoom" value="1.6105100000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="P_YEAR" class="java.lang.String"/>
+	<parameter name="P_DATE_FROM" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DATE_TO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    A.*,
+    COUNT(CASE WHEN age_category = 'A' THEN 1 END) OVER() AS category_1_total,
+    COUNT(CASE WHEN age_category = 'B' THEN 1 END) OVER() AS category_2_total,
+    COUNT(CASE WHEN age_category = 'C' THEN 1 END) OVER() AS category_3_total
+FROM baptism_records A
+WHERE date_of_baptism BETWEEN $P{P_DATE_FROM} AND $P{P_DATE_TO} ORDER BY A.DATE_OF_BAPTISM ASC;]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="age_category" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_of_baptism" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_of_birth" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="father_first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="father_last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="father_middle_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="middle_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="minister" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mother_first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mother_last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mother_middle_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="place_of_baptism" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="place_of_birth" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sponsors" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="book_no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="line_no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="page_no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="child_uuid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parents_address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="priest_in_charge" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category_1_total" class="java.lang.Long"/>
+	<field name="category_2_total" class="java.lang.Long"/>
+	<field name="category_3_total" class="java.lang.Long"/>
+	<title>
+		<band height="337" splitType="Stretch">
+			<staticText>
+				<reportElement x="175" y="0" width="197" height="15" uuid="4a4e7b16-041c-4187-ad2f-470dd2cc5f45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[Diocese of Calbayog]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="15" width="287" height="15" uuid="053a3840-d8d3-480b-ad93-eaa2cb7301f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[St. Francis of Assisi Mission Center]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="30" width="287" height="15" uuid="af1927fa-3b36-4d3c-ac5d-7909d97008db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[Brgy. Calapi Motiong, Samar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="66" width="303" height="36" uuid="5db0d2f2-22a1-425d-b1a2-86acd2fe7cb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAPTISM REPORT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="128" width="104" height="20" uuid="794b8bcb-997f-4e34-9db4-8860f580539e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[Reporting Year ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="148" width="104" height="20" uuid="0d1f426e-43b9-47f8-92a6-420e9beb6e8f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[Coverage]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="168" width="104" height="20" uuid="aeef13f2-cc24-4a8f-b5fc-5177d1d93a4b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[Date Generated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="168" width="6" height="20" uuid="f268603b-dca4-45c0-9a9a-89ebbc57a807"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="148" width="6" height="20" uuid="340bfbb1-ea1f-4321-b514-be3206cd295b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="128" width="6" height="20" uuid="23789597-1aee-4bd7-b431-813f59f3a7e1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="128" width="260" height="20" uuid="de5d44c0-3e2f-4017-a809-8cbef5210391"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_YEAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="148" width="260" height="20" uuid="3f004df9-2b85-4f7c-a2c1-be1f36e5a243"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("MMM dd, yyyy").format($P{P_DATE_FROM})
++ "  -  " +
+new java.text.SimpleDateFormat("MMM dd, yyyy").format($P{P_DATE_TO})]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="145" y="168" width="260" height="20" uuid="90150346-de61-4ded-8ad6-b44e25bccfb0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("MMM dd, yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="204" width="241" height="20" uuid="3cddfe19-7d89-41ca-ae06-e4c95282b732"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Baptism Summary Statistics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="236" width="92" height="20" uuid="3aeaf72a-fec0-40b1-89bb-eb23fa6bdb72"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[Total Baptisms]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="256" width="92" height="20" uuid="671dc7af-d047-4cb9-89b3-d495ea6d639d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[0 to 1 year old]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="276" width="92" height="20" uuid="674503b3-66f7-4362-9609-3aee19fc6f42"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[1 to 7 years old]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="296" width="92" height="20" uuid="ff9cee4e-78a6-4403-b94f-72f0edf7f551"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[7+ years old]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="236" width="6" height="20" uuid="ebde5d0c-031c-441f-a3a8-0b298f38ca2e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="256" width="6" height="20" uuid="64450c40-13b6-41a7-acd8-352235158a95"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="276" width="6" height="20" uuid="c138ee53-1850-4813-9d03-d6d9c37a8331"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="296" width="6" height="20" uuid="98314239-1d91-475a-933f-ade37690c524"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="14"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="133" y="236" width="125" height="20" uuid="b12430c1-6119-4a59-851f-c43caf8f2a17"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{category_1_total}+$F{category_2_total}+$F{category_3_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="256" width="125" height="20" uuid="ac51eeaa-6f08-45dd-95f7-c800ca560750"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{category_1_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="276" width="125" height="20" uuid="eaf0a4df-0e93-48ca-b67d-3816950cd65f"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{category_2_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="296" width="125" height="20" uuid="64d3fe38-9093-48e4-8f40-a4e8d971d0cd"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{category_3_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="125" height="20" uuid="2d7aabd9-31c5-4f50-916e-219bf2682de2"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name of the Baptizand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="0" width="98" height="20" uuid="c3331477-1328-487d-b42f-32e5f9c58b56"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Baptism]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="0" width="82" height="20" uuid="7a42df2b-ea85-421d-92e5-6a620c26b054"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Age Category]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="125" height="20" uuid="dfa00204-1fd0-4578-9cef-3e33eab480f3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Minister of Baptism]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="125" height="20" uuid="90e64975-a3ff-4581-bef8-0a8d03a8dcb9"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Priest in Charge]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="125" height="20" uuid="8ad7d61d-7a01-4773-baf6-63fa4518d1b1"/>
+				<box leftPadding="5">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{first_name}+" "+$F{middle_name}+" "+$F{last_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="98" height="20" uuid="c7039785-8015-461a-8b9e-5e51ff0788cb"/>
+				<box leftPadding="8">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("MMM/dd/yyyy").format($F{date_of_baptism})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="0" width="82" height="20" uuid="c10c5c1d-0856-445d-aecc-7754cbf15296"/>
+				<box leftPadding="5">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age_category} == null ? "" :
+$F{age_category}.equalsIgnoreCase("A") ? "0 to 1 year old" :
+$F{age_category}.equalsIgnoreCase("B") ? "1 to 7 years old" :
+$F{age_category}.equalsIgnoreCase("C") ? "7+ years old" :
+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="125" height="20" uuid="d1f75e2c-b10d-420b-a07f-ba36396d914f"/>
+				<box leftPadding="5">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{priest_in_charge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="0" width="125" height="20" uuid="d6ed1160-9bb6-400f-b2bd-e31191a5c690"/>
+				<box leftPadding="5">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Baskerville Old Face" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{minister}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

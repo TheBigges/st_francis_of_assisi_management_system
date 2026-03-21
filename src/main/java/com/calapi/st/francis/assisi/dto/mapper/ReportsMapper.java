@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import com.calapi.st.francis.assisi.model.BaptismRecord;
 import com.calapi.st.francis.assisi.model.ConfirmationRecord;
 import com.calapi.st.francis.assisi.model.WeddingRecord;
+import com.calapi.st.francis.assisi.model.dto.ReportDto;
 
 @Component
 public class ReportsMapper {
@@ -93,5 +94,21 @@ public class ReportsMapper {
 		params.put("P_PRIEST_IN_CHARGE", toUpper(nullSafe(record.getPriestInCharge())));
 		params.put("P_CHURCH", toUpper(nullSafe(record.getChurchLocation())));
 		return params;
+	}
+	
+	/**
+	 * @return Map<String, Object> of parameters defined in iReports creation for
+	 *         Baptism Report creation
+	 * 
+	 **/
+	public Map<String, Object> aggregateBaptismReportMapper(ReportDto reportDto) {
+	    Map<String, Object> params = new HashMap<>();
+
+	    params.put("P_YEAR", reportDto.getReportYear());
+
+	    params.put("P_DATE_FROM", java.sql.Date.valueOf(reportDto.getDateFrom()));
+	    params.put("P_DATE_TO", java.sql.Date.valueOf(reportDto.getDateTo()));
+
+	    return params;
 	}
 }

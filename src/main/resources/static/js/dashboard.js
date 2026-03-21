@@ -1,8 +1,6 @@
 window.currentRecordId = null;
 
-function navigate(tab) {
-	window.location.href = '/' + tab;
-}
+
 
 function editFromData(button) {
 
@@ -367,5 +365,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
+function navigate(tab) {
+	window.location.href = '/' + tab;
+}
 
 

@@ -52,3 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Initial render
 	renderTable();
 });
+
+function navigate(tab) {
+	window.location.href = '/' + tab;
+}
