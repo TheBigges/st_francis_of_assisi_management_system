@@ -13,11 +13,12 @@
 	<queryString>
 		<![CDATA[SELECT
     A.*,
-    COUNT(CASE WHEN age_category = 'A' THEN 1 END) OVER() AS category_1_total,
-    COUNT(CASE WHEN age_category = 'B' THEN 1 END) OVER() AS category_2_total,
-    COUNT(CASE WHEN age_category = 'C' THEN 1 END) OVER() AS category_3_total
+    COUNT(*) FILTER (WHERE age_category = 'A') OVER () AS category_1_total,
+    COUNT(*) FILTER (WHERE age_category = 'B') OVER () AS category_2_total,
+    COUNT(*) FILTER (WHERE age_category = 'C') OVER () AS category_3_total
 FROM baptism_records A
-WHERE date_of_baptism BETWEEN $P{P_DATE_FROM} AND $P{P_DATE_TO} ORDER BY A.DATE_OF_BAPTISM ASC;]]>
+WHERE date_of_baptism BETWEEN $P{P_DATE_FROM} AND $P{P_DATE_TO}
+ORDER BY A.date_of_baptism ASC;]]>
 	</queryString>
 	<field name="id" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
